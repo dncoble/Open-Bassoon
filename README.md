@@ -6,8 +6,8 @@ Solution: Compile dimensions of the instrument, and release them for free, along
 
 # State of the project:
 
-Developing CAD models
+Developing CAD models for testing bore shape and hole length/locations
 
 # Next up
 
-Initial tests for proper bore and hole dimensions.
+Printing and acoustic tests.
