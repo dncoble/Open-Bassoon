@@ -1,5 +1,9 @@
+import numpy as np
+import json
 """
-Doing calculations for the specification, and saving a file which will be read
-as the parameter file for the CAD file
+Doing computations on the bassoon geometry and saving data to a file read by 
+the CAD program
+
+numpy: 1.19.5
 """
 
