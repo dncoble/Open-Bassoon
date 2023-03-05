@@ -4,7 +4,7 @@ import pandas as pd
 """
 make json file of specs from the select group
 """
-names = ['7071', '8331', '9280', '9725', '10307']
+names = ['7170', '8331', '9280', '9725', '10307']
 
 full_dict = {}
 
@@ -15,8 +15,8 @@ for name in names:
     wing = pd.read_excel(file_name, sheet_name="wing").values
     boot_small_bore = pd.read_excel(file_name, sheet_name="boot small bore").values
     boot_large_bore = pd.read_excel(file_name, sheet_name="boot large bore").values
-    u_tube_in = pd.read_excel(file_name, sheet_name="u-tube in").values[0,1]
-    u_tube_out = pd.read_excel(file_name, sheet_name="u-tube out").values[0,1]
+    u_tube_in = pd.read_excel(file_name, sheet_name="u-tube in").values[0,0]
+    u_tube_out = pd.read_excel(file_name, sheet_name="u-tube out").values[0,0]
     long_joint = pd.read_excel(file_name, sheet_name="long joint").values
     bell = pd.read_excel(file_name, sheet_name="bell").values
     
