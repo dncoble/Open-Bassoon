@@ -109,7 +109,7 @@ utube_in = utube_ins[instrument]
 utube_out = utube_outs[instrument]
 
 for i, part in enumerate([tenor, bass, bell]):
-    part_name = ["tenor", "small boot", "bell"]
+    part_name = ["tenor", "small boot", "bell"][i]
     D = part[:,0]
     X = part[:,1]
     
