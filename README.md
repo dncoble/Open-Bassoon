@@ -4,7 +4,7 @@ My goal here is to compile information on my project to create a bassoon out of 
 
 # State of the project:
 
-* Compiling measurements of instruments from different sources.
+* ~Compiling measurements of instruments from different sources.~
 * Developing CAD models for testing bore shape and hole length/locations
 
 # Next up
