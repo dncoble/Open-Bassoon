@@ -2,16 +2,18 @@ import numpy as np
 import json
 import pandas as pd
 """
-make json file of specs from the select group
+make json file on bore and hole data for select instruments
 """
-names = ['7170', '8331', '9280', '9725', '10307']
+#%% compile bore data into dictionary
+names = ['Heckel 7170', 'Heckel 8331', 'Heckel 9280', 'Heckel 9725',\
+         'Heckel 9919', 'Heckel 10307', 'Riedl 296757']
 
-full_dict = {}
+bore_dict = {}
 
 for name in names:
     i_dict = {}
     
-    file_name = name + "-parts.xlsx"
+    file_name = "./bores/%s.xlsx"%name
     wing = pd.read_excel(file_name, sheet_name="wing").values
     boot_small_bore = pd.read_excel(file_name, sheet_name="boot small bore").values
     boot_large_bore = pd.read_excel(file_name, sheet_name="boot large bore").values
@@ -19,7 +21,6 @@ for name in names:
     u_tube_out = pd.read_excel(file_name, sheet_name="u-tube out").values[0,0]
     long_joint = pd.read_excel(file_name, sheet_name="long joint").values
     bell = pd.read_excel(file_name, sheet_name="bell").values
-    
     
     
     i_dict["tenor"] = wing.tolist()
@@ -30,7 +31,24 @@ for name in names:
     i_dict["bass"] = long_joint.tolist()
     i_dict["bell"] = bell.tolist()
     
-    full_dict[name] = i_dict
+    bore_dict[name] = i_dict
 
-with open('bore_dims.json', 'w') as f:
+#%% compile data on holes into dictionary
+names = ['Schreiber', 'Heckel 9919', 'Riedl 296757']
+
+holes_dict = {}
+
+file_name = "./holes/hole specification.xlsx"
+for name in names:
+    holes_dict[name] = data = pd.read_excel(file_name, sheet_name=name).values.tolist()
+    
+
+
+#%% combine both dicts and save to json file
+full_dict = {}
+
+full_dict['bore'] = bore_dict
+full_dict['holes'] = holes_dict
+
+with open('dimensions.json', 'w') as f:
     json.dump(full_dict, f)
